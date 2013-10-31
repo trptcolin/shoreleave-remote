@@ -4,7 +4,7 @@
 
   Adapted from Bobby Calderwood's Trail framework:
   <https://github.com/bobby/trail>
-  
+
   Enhanced to support uniform calling format and CSRF protection"}
   shoreleave.remotes.request
   (:require [cljs.reader :as reader]
@@ -86,8 +86,8 @@
 (defn- response-received
   [f e]
   (f {:id     (.-id e)
-      :body   (.getResponse e/xhrIo)
-      :status (.getStatus e/xhrIo)
+      :body   (.getResponse js/e.xhrIo)
+      :status (.getStatus js/e.xhrIo)
       :event  e}))
 
 (event/listen *xhr-manager* "success" (partial response-received response-success))
